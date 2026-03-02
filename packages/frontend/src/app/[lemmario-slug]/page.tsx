@@ -132,14 +132,14 @@ export default async function LemmarioPage({ params }: PageProps) {
       <div className="container mx-auto px-4 md:px-20 py-8 md:py-12">
         <header className={`mb-6 md:mb-8 ${hasLogos ? 'flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8' : 'text-center'}`}>
           {hasLogos && (
-            <div className="shrink-0 w-[120px] md:w-[180px] flex flex-col gap-3 mt-1">
+            <div className="shrink-0 flex flex-row md:flex-col items-center gap-3 mt-1">
               {logoObj && logoUrl && (
                 isSvg ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={logoUrl}
                     alt={logoObj.alt || `Logo ${lemmario.titolo}`}
-                    className="w-full object-contain dark:invert"
+                    className="w-[100px] md:w-[180px] object-contain dark:invert"
                   />
                 ) : (
                   <Image
@@ -147,8 +147,8 @@ export default async function LemmarioPage({ params }: PageProps) {
                     alt={logoObj.alt || `Logo ${lemmario.titolo}`}
                     width={logoObj.width || 240}
                     height={logoObj.height || 180}
-                    className="w-full h-auto object-contain"
-                    sizes="(max-width: 768px) 120px, 180px"
+                    className="w-[100px] md:w-[180px] h-auto object-contain"
+                    sizes="(max-width: 768px) 100px, 180px"
                   />
                 )
               )}
@@ -164,7 +164,7 @@ export default async function LemmarioPage({ params }: PageProps) {
                     key={index}
                     src={partnerUrl}
                     alt={partner.alt}
-                    className="w-[75%] object-contain dark:invert"
+                    className="w-[75px] md:w-[135px] object-contain dark:invert"
                   />
                 ) : (
                   <Image
@@ -173,7 +173,7 @@ export default async function LemmarioPage({ params }: PageProps) {
                     alt={partner.alt}
                     width={180}
                     height={60}
-                    className="w-[75%] h-auto object-contain dark:invert"
+                    className="w-[75px] md:w-[135px] h-auto object-contain dark:invert"
                   />
                 )
               })}
