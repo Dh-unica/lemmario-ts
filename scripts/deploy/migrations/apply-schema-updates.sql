@@ -39,7 +39,7 @@ BEGIN
   JOIN livelli_razionalita_rels lrr ON lrr.parent_id = lr.id AND lrr.path = 'lemmario'
   WHERE lr.numero = 5 AND lrr.lemmari_id = 1;
 
-  IF v_level5_nome = 'Giudizi di valore' THEN
+  IF v_level5_nome LIKE '%Giudizi di valore%' THEN
     SELECT lr.id INTO v_level6_id
     FROM livelli_razionalita lr
     JOIN livelli_razionalita_rels lrr ON lrr.parent_id = lr.id AND lrr.path = 'lemmario'

@@ -25,7 +25,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
       WHERE lr.numero = 5 AND lrr.lemmari_id = 1;
 
       -- Idempotenza: esegui solo se livello 5 è ancora "Giudizi di valore"
-      IF v_level5_nome = 'Giudizi di valore' THEN
+      IF v_level5_nome LIKE '%Giudizi di valore%' THEN
         SELECT lr.id INTO v_level6_id
         FROM livelli_razionalita lr
         JOIN livelli_razionalita_rels lrr ON lrr.parent_id = lr.id AND lrr.path = 'lemmario'
@@ -59,7 +59,7 @@ export async function down({ payload }: MigrateDownArgs): Promise<void> {
       WHERE lr.numero = 5 AND lrr.lemmari_id = 1;
 
       -- Rollback: esegui solo se livello 5 è "Istituzioni" (già swappato)
-      IF v_level5_nome = 'Istituzioni' THEN
+      IF v_level5_nome LIKE '%Istituzioni%' THEN
         SELECT lr.id INTO v_level6_id
         FROM livelli_razionalita lr
         JOIN livelli_razionalita_rels lrr ON lrr.parent_id = lr.id AND lrr.path = 'lemmario'
