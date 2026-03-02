@@ -196,12 +196,12 @@ export const DefinizioniStep: React.FC = () => {
                             <label>Pagina/Carta</label>
                             <input
                               type="text"
-                              value={ric.pagina || ''}
+                              value={ric.pagina_raw || ''}
                               onChange={(e) =>
                                 handleUpdateRicorrenza(
                                   realIndex,
                                   realRicIndex,
-                                  'pagina',
+                                  'pagina_raw',
                                   e.target.value
                                 )
                               }
