@@ -73,6 +73,28 @@ export const Fonti: CollectionConfig = {
         description: 'Note aggiuntive sulla fonte',
       },
     },
+    {
+      name: 'anno_inizio',
+      type: 'number',
+      admin: {
+        description: 'Anno di inizio (intero, per ordinamento cronologico)',
+      },
+    },
+    {
+      name: 'anno_fine',
+      type: 'number',
+      admin: {
+        description: 'Anno di fine per intervalli temporali (es. 1338-1345)',
+      },
+    },
+    {
+      name: 'data_circa',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'La data è approssimativa (es. "1450 circa")',
+      },
+    },
   ],
   timestamps: true,
   hooks: {
